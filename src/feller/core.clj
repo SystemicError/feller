@@ -12,12 +12,12 @@
   ([n r]
    (if (< r 0)
      0
-     (choose n r 1.0)))
+     (choose n r 1)))
   ([n r product]
    (if (= 0 r)
-     product
+     (int product)
      (recur (dec n) (dec r) (/ (* product n) r)))))
 
 (defn occupancies [n r]
   "Number of ways to put n identical balls in r urns."
-  (choose (+ n r -1) (dec r)))
+  (int (choose (+ n r -1) (dec r))))
